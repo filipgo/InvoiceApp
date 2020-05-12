@@ -1,6 +1,4 @@
-using System;
-
-namespace ExampleInvoiceApp.Models
+namespace ExampleInvoiceApp.App.Models
 {
     public class ErrorViewModel
     {

@@ -1,31 +1,32 @@
 using System;
 using System.Threading.Tasks;
 using ExampleInvoiceApp.Common.Models;
+using ExampleInvoiceApp.Common.Models.Requests;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ExampleInvoiceApp.Controllers
+namespace ExampleInvoiceApp.App.Controllers
 {
     public class InvoiceController : Controller
     {
-        // POST
-        public async Task<IActionResult> Create()
+        [HttpPost("create")]
+        public async Task<IActionResult> Create(CreateInvoiceRequest request)
         {
             throw new NotImplementedException();
         }
         
-        //PATCH
-        public async Task<IActionResult> Update()
+        [HttpPatch("update/{invoiceId}")]
+        public async Task<IActionResult> Update(UpdateInvoiceRequest request)
         {
             throw new NotImplementedException();
         }
         
-        //GET
-        public async Task<IActionResult> Read()
+        [HttpGet("{invoiceId}")]
+        public async Task<ActionResult<Invoice>> Read(int invoiceId)
         {
             throw new NotImplementedException();
         }
         
-        //DELETE
+        [HttpDelete("delete/{agreementId}")]
         public async Task<IActionResult> Delete()
         {
             throw new NotImplementedException();
