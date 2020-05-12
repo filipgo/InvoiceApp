@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleInvoiceApp", "ExampleInvoiceApp\ExampleInvoiceApp.csproj", "{A6563798-EC20-4401-AC05-C20881DE86E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InvoiceWebApi", "InvoiceWebApi\InvoiceWebApi.csproj", "{638E4F4D-C93E-42EB-9689-1122268E6FE8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{B0E351AA-F350-4B76-9B2A-A4823F7E77B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{A6563798-EC20-4401-AC05-C20881DE86E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A6563798-EC20-4401-AC05-C20881DE86E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A6563798-EC20-4401-AC05-C20881DE86E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{638E4F4D-C93E-42EB-9689-1122268E6FE8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{638E4F4D-C93E-42EB-9689-1122268E6FE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{638E4F4D-C93E-42EB-9689-1122268E6FE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{638E4F4D-C93E-42EB-9689-1122268E6FE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0E351AA-F350-4B76-9B2A-A4823F7E77B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0E351AA-F350-4B76-9B2A-A4823F7E77B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0E351AA-F350-4B76-9B2A-A4823F7E77B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0E351AA-F350-4B76-9B2A-A4823F7E77B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
