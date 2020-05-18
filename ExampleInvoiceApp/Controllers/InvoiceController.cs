@@ -5,7 +5,7 @@ using ExampleInvoiceApp.Common.Models.Requests;
 using ExampleInvoiceApp.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ExampleInvoiceApp.App.Controllers
+namespace ExampleInvoiceApp.App.Controllersoter
 {
     public class InvoiceController : Controller
     {
