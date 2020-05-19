@@ -1,36 +1,68 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using ExampleInvoiceApp.Common.Models;
-using ExampleInvoiceApp.Common.Models.Requests;
 using ExampleInvoiceApp.Services.Interfaces;
 
 namespace ExampleInvoiceApp.Services.Services
 {
     public class InvoiceService : IInvoiceService
     {
-        public Task Create(Invoice invoice)
+        private readonly IRepository<Invoice> _invoiceRepository;
+
+        public InvoiceService(IRepository<Invoice> invoiceRepository)
         {
-            throw new System.NotImplementedException();
+            _invoiceRepository = invoiceRepository;
+        }
+        
+        public async Task Create(Invoice invoice)
+        {
+            await this.CalcSum(invoice).ConfigureAwait(false);
+            await _invoiceRepository.Create(invoice);
         }
 
-        public Task<Invoice> Read(int invoiceId)
+        public async Task<Invoice> Read(int invoiceId)
         {
-            throw new System.NotImplementedException();
+            return await _invoiceRepository.Read(invoiceId);
         }
 
-        public Task<IList<Invoice>> ReadMany(IList<int> invoiceIds)
+        public async Task<IList<Invoice>> ReadMany(IList<int> invoiceIds)
         {
-            throw new System.NotImplementedException();
+            var result = new List<Invoice>();
+
+            foreach (var id in invoiceIds)
+            {
+                result.Add(await _invoiceRepository.Read(id));
+            }
+
+            return result;
         }
 
-        public Task Update(UpdateInvoiceRequest request)
+        public async Task Update(Invoice invoice)
         {
-            throw new System.NotImplementedException();
+            await _invoiceRepository.Update(invoice);
         }
 
-        public Task Delete(int invoiceId)
+        public async Task Delete(int invoiceId)
         {
-            throw new System.NotImplementedException();
+            await _invoiceRepository.Delete(invoiceId);
+        }
+
+        private async Task<Invoice> CalcSum(Invoice invoice)
+        {
+            double net = 0;
+            double gross = 0;
+            
+            foreach (var row in invoice.InvoiceRows)
+            {
+                net += row.UnitNetPrice * row.Quantity;
+                gross += (row.UnitNetPrice * row.Quantity) * (((double)row.VatRate + 100) / 100);
+            }
+
+            invoice.NetSum = net;
+            invoice.GrossSum = gross;
+
+            return invoice;
         }
     }
+
 }

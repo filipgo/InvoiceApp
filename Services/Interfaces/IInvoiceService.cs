@@ -13,7 +13,7 @@ namespace ExampleInvoiceApp.Services.Interfaces
 
         Task<IList<Invoice>> ReadMany(IList<int> invoiceIds);
         
-        Task Update(UpdateInvoiceRequest request);
+        Task Update(Invoice invoice);
 
         Task Delete(int invoiceId);
 
