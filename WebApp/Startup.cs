@@ -53,17 +53,12 @@ namespace ExampleInvoiceApp.WebApp
                 app.UseHsts();
             }
             
-            app.UseCors("CorsPolicy");
-            app.UseHttpsRedirection();
+            app.UseSpaStaticFiles();
+            
             app.UseRouting();
+            app.UseCors("CorsPolicy");
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller}/{action=Index}/{id?}");
-            });
-
+            
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = "ClientApp";
@@ -72,6 +67,15 @@ namespace ExampleInvoiceApp.WebApp
                 {
                     spa.UseAngularCliServer(npmScript: "start");
                 }
+            });
+
+            app.UseHttpsRedirection();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllers();
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller}/{action=Index}/{id?}");
             });
         }
     }

@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace ExampleInvoiceApp.WebApp.Controllers
 {
     [Produces("application/json")]
-    [Route("invoice")]
+    [Route("api/invoice")]
     public class InvoiceController : ControllerBase
     {
         public InvoiceController(IInvoiceService invoiceService)
@@ -19,7 +19,7 @@ namespace ExampleInvoiceApp.WebApp.Controllers
 
         private readonly IInvoiceService _invoiceService;
 
-        [HttpPost("create")]
+        [HttpPost]
         public async Task<IActionResult> Create(CreateInvoiceRequest request)
         {
             await _invoiceService.Create(request);

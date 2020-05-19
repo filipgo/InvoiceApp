@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Servic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{6F778554-F310-4120-BE64-1B3EE78AE6D0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestApi", "RestApi\RestApi.csproj", "{8AF31D1A-3722-432C-B7C0-E992A446AAA3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{6F778554-F310-4120-BE64-1B3EE78AE6D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F778554-F310-4120-BE64-1B3EE78AE6D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F778554-F310-4120-BE64-1B3EE78AE6D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AF31D1A-3722-432C-B7C0-E992A446AAA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AF31D1A-3722-432C-B7C0-E992A446AAA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AF31D1A-3722-432C-B7C0-E992A446AAA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AF31D1A-3722-432C-B7C0-E992A446AAA3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
