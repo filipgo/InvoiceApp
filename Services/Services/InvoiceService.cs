@@ -1,17 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using ExampleInvoiceApp.Common.Models;
+using ExampleInvoiceApp.Services.Data.Repository.Base;
 using ExampleInvoiceApp.Services.Interfaces;
 
 namespace ExampleInvoiceApp.Services.Services
 {
     public class InvoiceService : IInvoiceService
     {
-        private readonly IRepository<Invoice> _invoiceRepository;
+        private readonly BaseRepository<Invoice> _invoiceRepository;
+        private readonly IClientService _clientService;
 
-        public InvoiceService(IRepository<Invoice> invoiceRepository)
+        public InvoiceService(BaseRepository<Invoice> invoiceRepository, IClientService clientService)
         {
             _invoiceRepository = invoiceRepository;
+            _clientService = clientService;
         }
         
         public async Task Create(Invoice invoice)
@@ -35,6 +38,11 @@ namespace ExampleInvoiceApp.Services.Services
             }
 
             return result;
+        }
+
+        public async Task<List<Invoice>> ReadAll()
+        {
+            return await _invoiceRepository.ReadAll();
         }
 
         public async Task Update(Invoice invoice)

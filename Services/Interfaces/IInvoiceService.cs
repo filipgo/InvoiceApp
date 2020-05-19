@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using ExampleInvoiceApp.Common.Models;
-using ExampleInvoiceApp.Common.Models.Requests;
 
 namespace ExampleInvoiceApp.Services.Interfaces
 {
@@ -12,6 +11,8 @@ namespace ExampleInvoiceApp.Services.Interfaces
         Task<Invoice> Read(int invoiceId);
 
         Task<IList<Invoice>> ReadMany(IList<int> invoiceIds);
+
+        Task<List<Invoice>> ReadAll();
         
         Task Update(Invoice invoice);
 

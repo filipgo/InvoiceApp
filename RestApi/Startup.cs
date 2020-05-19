@@ -1,6 +1,7 @@
 using ExampleInvoiceApp.Common.Models;
 using ExampleInvoiceApp.Services.Data;
-using ExampleInvoiceApp.Services.Data.Base;
+using ExampleInvoiceApp.Services.Data.Repository;
+using ExampleInvoiceApp.Services.Data.Repository.Base;
 using ExampleInvoiceApp.Services.Interfaces;
 using ExampleInvoiceApp.Services.Services;
 using Microsoft.AspNetCore.Builder;
@@ -34,6 +35,7 @@ namespace ExampleInvoiceApp.RestApi
             //     options.UseSqlServer(Configuration.GetConnectionString("InvoiceContext")));
             
             services.AddScoped<IInvoiceService, InvoiceService>();
+            services.AddScoped<IClientService, ClientService>();
             services.AddScoped<BaseRepository<Invoice>, InvoiceRepository>();
             
             services.AddControllers();
