@@ -1,0 +1,24 @@
+<table>
+<thead>
+    <tr>
+        <th>Issue Date</th>
+        <th>Number</th>
+        <th>Month</th>
+        <th>NetSum</th>
+        <th>GrossSum</th>
+    </tr>
+</thead>
+<tbody>
+    <tr *ngFor="let invoice of invoiceData">
+        <td>{{ invoice.issueDate | date:'shortDate' }}</td>
+        <td>{{ invoice.number | number: '1.2-2' }}</td>
+        <td>{{ invoice.month | number: '1.0-0' }}</td>
+        <td>{{ invoice.netSum | number: '1.0-0' }}</td>
+        <td>{{ invoice.grossSum | number: '1.0-0' }}</td>
+        <td>
+            <!-- <a href="#" (click)="editRecord(this)">Edit</a>
+            <a href="#" (click)="deleteRecord(this)">Delete</a> -->
+        </td>
+    </tr>
+</tbody>
+</table>
