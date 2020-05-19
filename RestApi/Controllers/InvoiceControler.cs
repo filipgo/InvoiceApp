@@ -27,30 +27,55 @@ namespace ExampleInvoiceApp.RestApi.Controllers
             throw new NotImplementedException();
         }
         
-        [HttpPatch("update/{invoiceId}")]
+        [HttpPut]
         public async Task<IActionResult> Update(UpdateInvoiceRequest request)
         {
             throw new NotImplementedException();
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<IList<Invoice>>> GetAll()
+        {
+            var result =  new List<Invoice>();
+            
+            result.Add(await GetTestInvoice().ConfigureAwait(false));
+            result.Add(await GetTestInvoice().ConfigureAwait(false));
+            result.Add(await GetTestInvoice().ConfigureAwait(false));
+            result.Add(await GetTestInvoice().ConfigureAwait(false));
+            result.Add(await GetTestInvoice().ConfigureAwait(false));
+
+            return result;
         }
         
         [HttpGet("{invoiceId}")]
         public async Task<ActionResult<Invoice>> Read(int invoiceId)
         {
+            return await GetTestInvoice().ConfigureAwait(false);
+        }
+        
+        [HttpDelete("{invoiceId}")]
+        public async Task<IActionResult> Delete()
+        {
+            throw new NotImplementedException();
+        }
+
+        private async Task<Invoice> GetTestInvoice()
+        {
             var result = new Invoice
             {
                 Client = new Client
                 {
-                  Address  = new Address
-                  {
-                      Street = "Sezamkowa",
-                      BuildingNumber = "235a",
-                      FlatNumber = "32",
-                      City = "Warszawa",
-                      Country = "Polska",
-                      PostCode = 00500
-                  },
-                  TaxId = "1234567890",
-                  Id = 1
+                    Address  = new Address
+                    {
+                        Street = "Sezamkowa",
+                        BuildingNumber = "235a",
+                        FlatNumber = "32",
+                        City = "Warszawa",
+                        Country = "Polska",
+                        PostCode = 00500
+                    },
+                    TaxId = "1234567890",
+                    Id = 1
                 },
                 InvoiceId = 1,
                 IsPaid = true,
@@ -78,12 +103,6 @@ namespace ExampleInvoiceApp.RestApi.Controllers
             };
 
             return result;
-        }
-        
-        [HttpDelete("delete/{agreementId}")]
-        public async Task<IActionResult> Delete()
-        {
-            throw new NotImplementedException();
         }
     }
 }
