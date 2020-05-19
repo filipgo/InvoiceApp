@@ -1,6 +1,6 @@
 using System;
 
-namespace RestApi
+namespace ExampleInvoiceApp.RestApi
 {
     public class WeatherForecast
     {
