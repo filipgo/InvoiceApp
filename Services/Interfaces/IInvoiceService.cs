@@ -7,7 +7,7 @@ namespace ExampleInvoiceApp.Services.Interfaces
 {
     public interface IInvoiceService
     {
-        Task Create(CreateInvoiceRequest request);
+        Task Create(Invoice invoice);
 
         Task<Invoice> Read(int invoiceId);
 

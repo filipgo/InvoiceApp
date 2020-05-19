@@ -20,9 +20,9 @@ namespace ExampleInvoiceApp.RestApi.Controllers
         private readonly IInvoiceService _invoiceService;
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateInvoiceRequest request)
+        public async Task<IActionResult> Create(Invoice invoice)
         {
-            await _invoiceService.Create(request);
+            await _invoiceService.Create(invoice);
             
             throw new NotImplementedException();
         }

@@ -8,7 +8,7 @@ namespace ExampleInvoiceApp.Services.Services
 {
     public class InvoiceService : IInvoiceService
     {
-        public Task Create(CreateInvoiceRequest request)
+        public Task Create(Invoice invoice)
         {
             throw new System.NotImplementedException();
         }
