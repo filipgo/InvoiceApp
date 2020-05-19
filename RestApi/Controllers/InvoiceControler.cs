@@ -77,7 +77,7 @@ namespace ExampleInvoiceApp.RestApi.Controllers
                     TaxId = "1234567890",
                     Id = 1
                 },
-                InvoiceId = 1,
+                Id = 1,
                 IsPaid = true,
                 SellDate = DateTime.Now,
                 IssueDate = DateTime.Now,

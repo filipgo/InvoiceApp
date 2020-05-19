@@ -1,33 +1,22 @@
+using System.Linq;
 using System.Threading.Tasks;
 using ExampleInvoiceApp.Common.Models;
+using ExampleInvoiceApp.Services.Data.Base;
 using ExampleInvoiceApp.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace ExampleInvoiceApp.Services.Data
 {
-    public class InvoiceRepository : IRepository<Invoice>
+    public class InvoiceRepository : BaseRepository<Invoice>
     {
-        private readonly DbContext _context;
-
-
-        public Task Create(Invoice item)
+        public InvoiceRepository(DbSet<Invoice> dbSet) : base(dbSet)
         {
-            throw new System.NotImplementedException();
         }
+        
 
-        public Task<Invoice> Read(int id)
+        public async Task Delete(int id)
         {
-            throw new System.NotImplementedException();
-        }
-
-        public Task Update(Invoice item)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task Delete(int id)
-        {
-            throw new System.NotImplementedException();
+            DbSet.Remove(await DbSet.FindAsync(id));
         }
     }
 }
